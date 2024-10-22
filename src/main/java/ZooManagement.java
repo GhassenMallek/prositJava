@@ -1,28 +1,23 @@
 package main.java;
-import java.util.Scanner;
 
 public class ZooManagement {
 
 	public static void main(String[] args) {
-		int nbrCage = 20;
-		String zooName = "my zoo";
-		Scanner sc = new Scanner(System.in);
 		
-		//Récupération du nom du zoo
-		System.out.println("Veuillez entrer le nom du zoo");
-		zooName = sc.next();
+		Zoo myZoo = new Zoo(5, "Clifornia Zoo", "California", 20);
+		Animal lion = new Animal("Félins", "Simba the King lion", 15, true);
+		Animal lion2 = new Animal("Félins", "Simba the King lion", 15, true);
 		
-		//Récupération du nombre de cages
-		System.out.println("Veuillez entrer le nombre de cages");
-		nbrCage = sc.nextInt();
+		myZoo.addAnimal(lion);
 		
-		//Vérification des entrées
-		if(nbrCage>0 && zooName!="") {
-			System.out.println(zooName+" comporte "+nbrCage+" cages");
-		}
-		else {
-			System.out.println("entrées non valide");
-		}
+		myZoo.addAnimal(lion2);
+		myZoo.displayZoo();
+		
+		myZoo.displayAnimals();
+		System.out.println(myZoo.searchAnimal(lion)); 
+		System.out.println(myZoo.searchAnimal(lion2)); 
+
+		
 	}
 
 }
